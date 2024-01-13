@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+// 10진수를 2진수로 변환했을 때의 1의 개수를 출력하는 프로그램
+
+int num, count;
+
+int main()
+{
+	printf("10진수 입력 : "); scanf("%d", &num);
+
+	while (num > 0)
+	{
+		if (num % 2 == 1)
+			count++;
+		num /= 2;
+	}
+	printf("1의 개수 : %d", count);
+}
