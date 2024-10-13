@@ -1,0 +1,24 @@
+// 부분수열의 합
+// 배열 요소의 합으로 정수를 나타낼 수 있는 경우의 수
+
+#include <bits/stdc++.h>
+using namespace std;
+int n, arr[10100], s, ans;
+
+void add(int k, int sum)
+{
+    if(k == n) return;
+    if(sum + arr[k] == s) ans++;
+    add(k+1, sum);
+    add(k+1, sum+arr[k]);
+}
+int main()
+{
+    printf("n : ");
+    scanf("%d", &n);
+    printf("s : ");
+    scanf("%d", &s);
+    for(int i = 0; i < n; i++) scanf("%d", &arr[i]);
+    add(0, 0);
+    printf("ans : %d\n", ans);
+}
