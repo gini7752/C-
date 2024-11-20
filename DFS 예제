@@ -1,0 +1,42 @@
+/*
+왼쪽부터 한자리씩 자리를 늘려가도 계속 소수인 "신기한 소수"의 개수를 구하라
+*/
+
+#include <iostream>
+using namespace std;
+static int N;
+
+bool isPrime(int num)  # 소수 판별 함수
+{
+  for(int i = 2; i <= num / 2; i++)
+  {
+    if(num % i == 0) return false;
+  }
+  return true;
+}
+
+void DFS(int num, int digit) // 깊이 우선 탐색 함수(자릿수별 깊이)
+{
+  if(digit == N)
+  {
+    if(isPrime(num)) cout << num << "\n";
+  return;
+  }
+  for(int i = 1; i < 10; i++)
+  {
+    if(i % 2 == 0) continue;
+  }
+  if(isPrime(num*10 + i)) DFS(num*10 + i, digit + 1);
+}
+int main()
+{
+  ios::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);  
+
+    cin >> N;
+    DFS(2, 1);
+    DFS(3, 1);
+    DFS(5, 1);
+    DFS(7, 1);
+}
